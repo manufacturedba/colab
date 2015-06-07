@@ -1,7 +1,25 @@
 doctype html
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+    head
+        meta(charset="utf-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        title= title
+        link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.min.css')
+        link(rel='stylesheet', href='/stylesheets/style.css')
+
+        script(type="text/javascript", src='/bower_components/webcomponentsjs/webcomponents.js')
+
+        link(rel="import", href="/bower_components/polymer/polymer.html")
+        link(rel="import", href="/elements/elements.html")
+        link(rel="import", href="/elements/theme.html")
+        script(type="text/javascript", src="https://code.angularjs.org/2.0.0-alpha.23/angular2.sfx.dev.js")
+
+    body(unresolved, class="fullbleed vertical layout")
+        template(is="dom-bind", id="app")
+                paper-header-panel(main, mode="waterfall")
+                    paper-toolbar(id="mainToolbar")
+                        div(class="title") Collaborate
+                    section(class="layout vertical flex", content)
+                        colab
+                            block content
+        script(type="text/javascript", src="/javascripts/app.js")
