@@ -8,18 +8,25 @@ html
         link(rel='stylesheet', href='/stylesheets/style.css')
 
         script(type="text/javascript", src='/bower_components/webcomponentsjs/webcomponents.js')
+        script(src="/socket.io/socket.io.js")
 
         link(rel="import", href="/bower_components/polymer/polymer.html")
         link(rel="import", href="/elements/elements.html")
         link(rel="import", href="/elements/theme.html")
-        script(type="text/javascript", src="https://code.angularjs.org/2.0.0-alpha.23/angular2.sfx.dev.js")
+        script(type="text/javascript", src="/bower_components/angular/angular.min.js")
+        script(type="text/javascript", src="/bower_components/angular-route/angular-route.min.js")
 
     body(unresolved, class="fullbleed vertical layout")
-        template(is="dom-bind", id="app")
+        template(is="dom-bind")
                 paper-header-panel(main, mode="waterfall")
                     paper-toolbar(id="mainToolbar")
                         div(class="title") Collaborate
                     section(class="layout vertical flex", content)
-                        colab
                             block content
         script(type="text/javascript", src="/javascripts/app.js")
+        script(type="text/javascript", src="/javascripts/controllers/homeCtrl.js")
+        script(type="text/javascript", src="/javascripts/services/storeSrvc.js")
+        script(type="text/javascript", src="/javascripts/services/socketSrvc.js")
+        script(type="text/javascript", src="/javascripts/directives/ng-paper-material.js")
+
+        include partials

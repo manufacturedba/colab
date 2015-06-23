@@ -5,10 +5,7 @@ mod.controller('homeCtrl', [
     'storeSrvc',
     function(scope, storeSrvc){
         storeSrvc.find()
-            .success(function(data){
+            .then(function(data){
                 scope.entries = data;
             })
-            .error(function(){
-                console.log('error');
-            });
 }]);

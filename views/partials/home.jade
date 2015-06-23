@@ -1,0 +1,5 @@
+script(type="text/ng-template", id="home.jade")
+    div(ng-repeat="entry in entries")
+        ng-paper-material(elevation="1", class="layout vertical fullbleed", stuff="entry")
+            div Hello
+            span(ng-bind="model")

@@ -1,8 +1,7 @@
 var mod = angular.module('colab.services', []);
 
-mod.service('storeSrvc', ['$http', function(http){
-    var endpoint = "/get";
+mod.service('storeSrvc', ['socketSrvc', function(socket){
     this.find = function(){
-        return http.get(endpoint);
+        return socket.call("find");
     }
 }]);

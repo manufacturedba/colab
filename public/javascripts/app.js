@@ -1,14 +1,29 @@
-function AppComponent(){}
+var mod = angular.module('colab', [
+    'ngRoute',
+    'ngPaper',
+    'colab.controllers'
+]);
 
-AppComponent.annotations = [
-    new angular.ComponentAnnotation({
-        selector: 'colab'
-    }),
-    new angular.ViewAnnotation({
-        templateUrl: 'partials/home.html'
-    })
-]
+mod.config([
+    '$routeProvider',
+    function(routeProvider){
+        routeProvider
+            .when('/home', {
+                templateUrl: 'home.jade',
+                controller: 'homeCtrl'
+            })
+            .otherwise('/home')
 
-document.addEventListener('DOMContentLoaded', function(){
-    angular.bootstrap(AppComponent);
+    }
+]);
+
+mod.run([
+    '$location',
+    function(location){
+        location.path('/home')
+}]);
+
+
+window.addEventListener('WebComponentsReady', function(){
+    angular.bootstrap(document, ['colab']);
 })
